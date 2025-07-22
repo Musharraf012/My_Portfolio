@@ -1,19 +1,32 @@
-import Link from "next/link"
-import { ArrowRight, Github, Linkedin, Mail, Twitter } from "lucide-react"
+"use client";
+import Link from "next/link";
+import { ArrowRight, Github, Linkedin, Mail, Twitter } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { ProjectCard } from "@/components/project-card"
-import { SkillBadge } from "@/components/skill-badge"
-import { Timeline } from "@/components/timeline"
-import { ContactForm } from "@/components/contact-form"
-import { CreativeHero } from "@/components/creative-hero"
-import { FloatingNav } from "@/components/floating-nav"
-import { MouseFollower } from "@/components/mouse-follower"
-import { ScrollProgress } from "@/components/scroll-progress"
-import { SectionHeading } from "@/components/section-heading"
-import { GlassmorphicCard } from "@/components/glassmorphic-card"
+import { Button } from "@/components/ui/button";
+import { ProjectCard } from "@/components/project-card";
+import { SkillBadge } from "@/components/skill-badge";
+import { Timeline } from "@/components/timeline";
+import { ContactForm } from "@/components/contact-form";
+import { CreativeHero } from "@/components/creative-hero";
+import { FloatingNav } from "@/components/floating-nav";
+import { MouseFollower } from "@/components/mouse-follower";
+import { ScrollProgress } from "@/components/scroll-progress";
+import { SectionHeading } from "@/components/section-heading";
+import { GlassmorphicCard } from "@/components/glassmorphic-card";
 
 export default function Portfolio() {
+  // Smooth scroll function
+  const smoothScrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-zinc-900 via-zinc-900 to-black text-white overflow-hidden">
       <MouseFollower />
@@ -32,7 +45,9 @@ export default function Portfolio() {
           <div className="space-y-6">
             <div className="hidden md:inline-block">
               <div className="relative px-3 py-1 text-sm font-medium rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4">
-                <span className="relative z-10 ">Software Engineer & Creative Developer</span>
+                <span className="relative z-10 ">
+                  Software Engineer & Creative Developer
+                </span>
                 <span className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 animate-pulse"></span>
               </div>
             </div>
@@ -43,24 +58,34 @@ export default function Portfolio() {
               </span>
             </h1>
             <p className="text-xl text-zinc-400 max-w-[600px]">
-              I craft exceptional digital experiences with code, creativity, and a passion for innovation.
+              Transforming ideas into elegant, high-performance web experiences
+              — one line of code at a time.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <Button className="relative overflow-hidden group bg-gradient-to-r from-purple-500 to-pink-500 border-0">
+              <Button
+                className="relative overflow-hidden group bg-gradient-to-r from-purple-500 to-pink-500 border-0"
+                onClick={() => smoothScrollToSection("projects")}
+              >
                 <span className="relative z-10 flex items-center">
-                  View Projects <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  View Projects{" "}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
                 <span className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
               </Button>
               <Button
                 variant="outline"
-                className="border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500"
+                className="border-zinc-700 text-[#ec4899] hover:text-[#c43c80] hover:border-zinc-500"
+                onClick={() => smoothScrollToSection("contact")}
               >
                 Contact Me
               </Button>
             </div>
             <div className="flex gap-4 pt-4">
-              <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://github.com/Musharraf012"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button
                   variant="ghost"
                   size="icon"
@@ -70,7 +95,11 @@ export default function Portfolio() {
                   <span className="sr-only">GitHub</span>
                 </Button>
               </Link>
-              <Link href="https://www.linkedin.com/in/shinekyawkyawaung/" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://www.linkedin.com/in/musharraf-kapadwala-31808420b/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button
                   variant="ghost"
                   size="icon"
@@ -80,7 +109,7 @@ export default function Portfolio() {
                   <span className="sr-only">LinkedIn</span>
                 </Button>
               </Link>
-              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+              {/* <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   size="icon"
@@ -89,8 +118,8 @@ export default function Portfolio() {
                   <Twitter className="h-5 w-5" />
                   <span className="sr-only">Twitter</span>
                 </Button>
-              </Link>
-              <Link href="mailto:hello@example.com">
+              </Link> */}
+              <Link href="mailto:mkapadwala87@gmail.com">
                 <Button
                   variant="ghost"
                   size="icon"
@@ -122,7 +151,10 @@ export default function Portfolio() {
         </div>
 
         <div className="container relative z-10">
-          <SectionHeading title="About Me" subtitle="My background and journey" />
+          <SectionHeading
+            title="About Me"
+            subtitle="My background and journey"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
             <div className="relative">
@@ -137,7 +169,9 @@ export default function Portfolio() {
                 <div className="absolute bottom-0 left-0 w-full p-6">
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-                    <span className="text-sm font-medium">Available for work</span>
+                    <span className="text-sm font-medium">
+                      Available for work
+                    </span>
                   </div>
                 </div>
               </div>
@@ -146,17 +180,22 @@ export default function Portfolio() {
             <div className="space-y-6">
               <GlassmorphicCard>
                 <p className="text-lg text-zinc-300">
-                  I'm a passionate software engineer with experience building web applications and digital products. I
-                  specialize in frontend development with React and Next.js, but I'm also comfortable working with
-                  backend technologies.
+                  I'm a creative and detail-oriented frontend developer who
+                  transforms ideas into interactive, high-performance web
+                  experiences. I specialize in React, Next.js, Tailwind CSS, and
+                  TypeScript, and I'm also comfortable working with backend
+                  technologies like Node.js and MongoDB.
                 </p>
                 <p className="text-lg text-zinc-300 mt-4">
-                  My journey in tech started with a strong foundation in software development. I've worked with various
-                  companies to create intuitive, performant, and accessible digital experiences.
+                  My journey in tech began with a solid foundation in software
+                  development, and since then, I’ve collaborated with teams to
+                  build intuitive, accessible, and user-focused digital
+                  products.
                 </p>
                 <p className="text-lg text-zinc-300 mt-4">
-                  When I'm not coding, you can find me exploring new technologies, contributing to open-source projects,
-                  and staying up-to-date with the latest industry trends.
+                  Outside of coding, I love exploring new technologies and keeping up with the
+                  latest trends in web development to constantly sharpen my
+                  skills.
                 </p>
 
                 <div className="grid grid-cols-2 gap-4 mt-8">
@@ -166,7 +205,9 @@ export default function Portfolio() {
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">Email</div>
-                    <div className="font-medium break-words whitespace-normal">mkapadwala87@gmail.com</div>
+                    <div className="font-medium break-words whitespace-normal">
+                      mkapadwala87@gmail.com
+                    </div>
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">Location</div>
@@ -174,12 +215,16 @@ export default function Portfolio() {
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">Availability</div>
-                    <div className="font-medium text-green-500">Open to opportunities</div>
+                    <div className="font-medium text-green-500">
+                      Open to opportunities
+                    </div>
                   </div>
                 </div>
 
                 <div className="mt-8">
-                  <Button className="bg-zinc-800 hover:bg-zinc-700 text-white">Download Resume</Button>
+                  <Button className="bg-zinc-800 hover:bg-zinc-700 text-white">
+                    Download Resume
+                  </Button>
                 </div>
               </GlassmorphicCard>
             </div>
@@ -195,21 +240,25 @@ export default function Portfolio() {
         </div>
 
         <div className="container relative z-10">
-          <SectionHeading title="My Skills" subtitle="Technologies I work with" />
+          <SectionHeading
+            title="My Skills"
+            subtitle="Technologies I work with"
+          />
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-16">
             <SkillBadge name="JavaScript" level={90} />
             <SkillBadge name="TypeScript" level={85} />
             <SkillBadge name="React" level={95} />
             <SkillBadge name="Next.js" level={90} />
-            <SkillBadge name="Node.js" level={80} />
+            <SkillBadge name="Node.js" level={75} />
             <SkillBadge name="HTML/CSS" level={95} />
             <SkillBadge name="Tailwind CSS" level={90} />
-            <SkillBadge name="GraphQL" level={75} />
-            <SkillBadge name="PostgreSQL" level={70} />
-            <SkillBadge name="AWS" level={65} />
-            <SkillBadge name="Docker" level={60} />
+            <SkillBadge name="Rest APIs" level={90} />
+            <SkillBadge name="MongoDB" level={70} />
+            <SkillBadge name="Express" level={75} />
+            <SkillBadge name="Azure" level={60} />
             <SkillBadge name="Git" level={85} />
+            {/* <SkillBadge name="SQL" level={70} /> */}
           </div>
         </div>
       </section>
@@ -222,7 +271,10 @@ export default function Portfolio() {
         </div>
 
         <div className="container relative z-10">
-          <SectionHeading title="Featured Projects" subtitle="Some of my recent work" />
+          <SectionHeading
+            title="Featured Projects"
+            subtitle="Some of my recent work"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
             <ProjectCard
@@ -285,7 +337,10 @@ export default function Portfolio() {
         </div>
 
         <div className="container relative z-10">
-          <SectionHeading title="Work Experience" subtitle="My professional journey" />
+          <SectionHeading
+            title="Work Experience"
+            subtitle="My professional journey"
+          />
 
           <div className="mt-16">
             <Timeline />
@@ -322,7 +377,9 @@ export default function Portfolio() {
                   </div>
                   <div>
                     <div className="text-sm text-zinc-500">LinkedIn</div>
-                    <div className="font-medium">linkedin.com/in/shinekyawkyawaung</div>
+                    <div className="font-medium">
+                      linkedin.com/in/shinekyawkyawaung
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -331,7 +388,9 @@ export default function Portfolio() {
                   </div>
                   <div>
                     <div className="text-sm text-zinc-500">GitHub</div>
-                    <div className="font-medium">github.com/shinekyawkyawaung</div>
+                    <div className="font-medium">
+                      github.com/shinekyawkyawaung
+                    </div>
                   </div>
                 </div>
               </div>
@@ -340,7 +399,9 @@ export default function Portfolio() {
                 <h4 className="text-lg font-medium mb-4">Current Status</h4>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-                  <span>Available for freelance work and full-time opportunities</span>
+                  <span>
+                    Available for freelance work and full-time opportunities
+                  </span>
                 </div>
               </div>
             </GlassmorphicCard>
@@ -355,15 +416,22 @@ export default function Portfolio() {
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
             <Link href="/" className="font-bold text-xl">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">Shine</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+                Shine
+              </span>
               <span className="text-white">KKA</span>
             </Link>
             <p className="text-sm text-zinc-500 mt-2">
-              © {new Date().getFullYear()} Mohammad Musharraf. All rights reserved.
+              © {new Date().getFullYear()} Mohammad Musharraf. All rights
+              reserved.
             </p>
           </div>
           <div className="flex gap-4">
-            <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 variant="ghost"
                 size="icon"
@@ -373,7 +441,11 @@ export default function Portfolio() {
                 <span className="sr-only">GitHub</span>
               </Button>
             </Link>
-            <Link href="https://www.linkedin.com/in/shinekyawkyawaung/" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="https://www.linkedin.com/in/shinekyawkyawaung/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 variant="ghost"
                 size="icon"
@@ -383,7 +455,11 @@ export default function Portfolio() {
                 <span className="sr-only">LinkedIn</span>
               </Button>
             </Link>
-            <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 variant="ghost"
                 size="icon"
@@ -407,5 +483,5 @@ export default function Portfolio() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
