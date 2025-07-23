@@ -13,6 +13,7 @@ import { MouseFollower } from "@/components/mouse-follower";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { SectionHeading } from "@/components/section-heading";
 import { GlassmorphicCard } from "@/components/glassmorphic-card";
+import { downloadFile } from "@/lib/utils";
 
 export default function Portfolio() {
   // Smooth scroll function
@@ -25,6 +26,9 @@ export default function Portfolio() {
         inline: "nearest",
       });
     }
+  };
+    const handleDownload = () => {
+    downloadFile("/Musharraf-resume.pdf", "Musharraf-Resume.pdf");
   };
 
   return (
@@ -161,7 +165,7 @@ export default function Portfolio() {
               <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl opacity-70"></div>
               <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800">
                 <img
-                  src="/placeholder.svg?height=600&width=600"
+                  src="/portfolioimg.png?height=600&width=600"
                   alt="Mohammad Musharraf"
                   className="w-full h-full object-cover"
                 />
@@ -180,23 +184,16 @@ export default function Portfolio() {
             <div className="space-y-6">
               <GlassmorphicCard>
                 <p className="text-lg text-zinc-300">
-                  I'm a creative and detail-oriented frontend developer who
-                  transforms ideas into interactive, high-performance web
-                  experiences. I specialize in React, Next.js, Tailwind CSS, and
-                  TypeScript, and I'm also comfortable working with backend
-                  technologies like Node.js and MongoDB.
+                  Creative, detail‑oriented frontend developer crafting interactive, high‑performance web experiences. Specializing in React, Next.js, Tailwind CSS, and TypeScript, with hands‑on expertise in backend technologies like Node.js and MongoDB.
                 </p>
                 <p className="text-lg text-zinc-300 mt-4">
-                  My journey in tech began with a solid foundation in software
-                  development, and since then, I’ve collaborated with teams to
-                  build intuitive, accessible, and user-focused digital
-                  products.
+                  Focused on building intuitive, accessible, and user‑centric digital products, while constantly exploring emerging technologies and trends to stay ahead in the ever‑evolving web landscape.
                 </p>
-                <p className="text-lg text-zinc-300 mt-4">
+                {/* <p className="text-lg text-zinc-300 mt-4">
                   Outside of coding, I love exploring new technologies and keeping up with the
                   latest trends in web development to constantly sharpen my
                   skills.
-                </p>
+                </p> */}
 
                 <div className="grid grid-cols-2 gap-4 mt-8">
                   <div className="space-y-1">
@@ -222,7 +219,7 @@ export default function Portfolio() {
                 </div>
 
                 <div className="mt-8">
-                  <Button className="bg-zinc-800 hover:bg-zinc-700 text-white">
+                  <Button className="bg-zinc-800 hover:bg-zinc-700 text-white" onClick={handleDownload}>
                     Download Resume
                   </Button>
                 </div>
@@ -258,7 +255,10 @@ export default function Portfolio() {
             <SkillBadge name="Express" level={75} />
             <SkillBadge name="Azure" level={60} />
             <SkillBadge name="Git" level={85} />
-            {/* <SkillBadge name="SQL" level={70} /> */}
+            <SkillBadge name="SQL" level={70} />
+            <SkillBadge name="Firebase" level={70} />
+            <SkillBadge name="Stripe" level={70} />
+            <SkillBadge name="Clover" level={70} />
           </div>
         </div>
       </section>
@@ -368,7 +368,7 @@ export default function Portfolio() {
                   </div>
                   <div>
                     <div className="text-sm text-zinc-500">Email</div>
-                    <div className="font-medium">hello@example.com</div>
+                    <div className="font-medium">mkapadwala87@gmail.com</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -378,7 +378,7 @@ export default function Portfolio() {
                   <div>
                     <div className="text-sm text-zinc-500">LinkedIn</div>
                     <div className="font-medium">
-                      linkedin.com/in/shinekyawkyawaung
+                      https://www.linkedin.com/in/musharraf-kapadwala-31808420b/
                     </div>
                   </div>
                 </div>
@@ -389,7 +389,7 @@ export default function Portfolio() {
                   <div>
                     <div className="text-sm text-zinc-500">GitHub</div>
                     <div className="font-medium">
-                      github.com/shinekyawkyawaung
+                      https://github.com/Musharraf012
                     </div>
                   </div>
                 </div>
@@ -415,12 +415,12 @@ export default function Portfolio() {
       <footer className="border-t border-zinc-800 py-12">
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
-            <Link href="/" className="font-bold text-xl">
+            {/* <Link href="/" className="font-bold text-xl">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
                 Shine
               </span>
               <span className="text-white">KKA</span>
-            </Link>
+            </Link> */}
             <p className="text-sm text-zinc-500 mt-2">
               © {new Date().getFullYear()} Mohammad Musharraf. All rights
               reserved.
@@ -428,7 +428,7 @@ export default function Portfolio() {
           </div>
           <div className="flex gap-4">
             <Link
-              href="https://github.com"
+              href="https://github.com/Musharraf012"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -442,7 +442,7 @@ export default function Portfolio() {
               </Button>
             </Link>
             <Link
-              href="https://www.linkedin.com/in/shinekyawkyawaung/"
+              href="https://www.linkedin.com/in/musharraf-kapadwala-31808420b/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -455,7 +455,7 @@ export default function Portfolio() {
                 <span className="sr-only">LinkedIn</span>
               </Button>
             </Link>
-            <Link
+            {/* <Link
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -468,8 +468,8 @@ export default function Portfolio() {
                 <Twitter className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
               </Button>
-            </Link>
-            <Link href="mailto:hello@example.com">
+            </Link> */}
+            <Link href="mailto:mkapadwala87@gmail.com">
               <Button
                 variant="ghost"
                 size="icon"

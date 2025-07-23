@@ -1,35 +1,63 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Send } from "lucide-react";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Send } from "lucide-react"
-
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { useToast } from "@/hooks/use-toast"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 
 export function ContactForm() {
-  const { toast } = useToast()
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+  const form = e.currentTarget; // store reference early
 
+  const formData = new FormData(form);
+  const data = {
+    name: formData.get("user_name"),
+    email: formData.get("user_email"),
+    subject: formData.get("subject"),
+    message: formData.get("message"),
+  };
+
+  try {
+    const res = await fetch("/api/send-sms", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      toast({
+        title: "Message sent!",
+        description: "Thanks for reaching out. I'll get back to you soon.",
+      });
+      form.reset(); // safe, because 'form' is always the element
+    } else {
+      toast({
+        title: "Failed to send",
+        description: "Please try again later.",
+      });
+    }
+  } catch (error) {
+    console.error(error);
     toast({
-      title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    })
-
-    setIsSubmitting(false)
-    e.currentTarget.reset()
+      title: "Error",
+      description: "Something went wrong. Please try again later.",
+    });
+  } finally {
+    setIsSubmitting(false);
   }
+};
+
 
   return (
     <motion.div
@@ -45,36 +73,32 @@ export function ContactForm() {
           <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-2">
-              <Input
-                placeholder="Your Name"
-                required
-                className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
-              />
-            </div>
-            <div className="space-y-2">
-              <Input
-                type="email"
-                placeholder="Your Email"
-                required
-                className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
-              />
-            </div>
-            <div className="space-y-2">
-              <Input
-                placeholder="Subject"
-                required
-                className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
-              />
-            </div>
-            <div className="space-y-2">
-              <Textarea
-                placeholder="Your Message"
-                rows={5}
-                required
-                className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
-              />
-            </div>
+            <Input
+              name="user_name"
+              placeholder="Your Name"
+              required
+              className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
+            />
+            <Input
+              name="user_email"
+              type="email"
+              placeholder="Your Email"
+              required
+              className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
+            />
+            <Input
+              name="subject"
+              placeholder="Subject"
+              required
+              className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
+            />
+            <Textarea
+              name="message"
+              placeholder="Your Message"
+              rows={5}
+              required
+              className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
+            />
             <Button
               type="submit"
               className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 border-0"
@@ -92,5 +116,5 @@ export function ContactForm() {
         </div>
       </div>
     </motion.div>
-  )
+  );
 }
