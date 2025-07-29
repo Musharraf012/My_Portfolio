@@ -276,56 +276,78 @@ export default function Portfolio() {
             subtitle="Some of my recent work"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-            <ProjectCard
-              title="E-commerce Platform"
-              description="A full-stack e-commerce platform built with Next.js, Stripe, and Prisma."
-              tags={["Next.js", "TypeScript", "Prisma", "Stripe"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com"
-            />
-            <ProjectCard
-              title="Task Management App"
-              description="A collaborative task management application with real-time updates."
-              tags={["React", "Firebase", "Tailwind CSS", "Redux"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com"
-            />
-            <ProjectCard
-              title="AI Content Generator"
-              description="An AI-powered content generation tool using OpenAI's GPT models."
-              tags={["Next.js", "OpenAI API", "Node.js", "MongoDB"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com"
-            />
-            <ProjectCard
-              title="Fitness Tracker"
-              description="A mobile-first fitness tracking application with data visualization."
-              tags={["React Native", "TypeScript", "D3.js", "Firebase"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com"
-            />
-            <ProjectCard
-              title="Weather Dashboard"
-              description="A beautiful weather dashboard with forecasts and historical data."
-              tags={["React", "Weather API", "Chart.js", "Styled Components"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com"
-            />
-            <ProjectCard
-              title="Portfolio Website"
-              description="This portfolio website built with Next.js and Tailwind CSS."
-              tags={["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com"
-            />
-          </div>
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+<ProjectCard
+    title="Live Food Ordering Platform"
+    description="A real-time food ordering system used in Bellevue, USA."
+    tags={[
+      "React.js",
+      "Redux",
+      "Redux-Saga",
+      "Tailwind CSS",
+      "Stripe",
+      "Firebase",
+      "Clover",
+      "Node.js",
+      "Azure",
+      "AI Chatbot",
+    ]}
+    image="/placeholder.svg?height=400&width=600"
+    demoUrl="https://honestbellevue.com"
+    repoUrl="https://github.com"
+  />
+
+  <ProjectCard
+    title="Pharma Management System"
+    description="A web portal to access pharmaceutical product details and Certificates of Analysis (COA), with backend support in PHP."
+    tags={["React.js", "Bootstrap", "PHP", "COA Viewer"]}
+    image="/placeholder.svg?height=400&width=600"
+    demoUrl="https://dimer.com"
+    repoUrl="https://github.com"
+  />
+
+  <ProjectCard
+    title="Drevol Company Website"
+    description="A sleek company site with smooth animations and contact form, built using React, Redux, Tailwind, and EmailJS."
+    tags={[
+      "React.js",
+      "Redux",
+      "Tailwind CSS",
+      "Framer Motion",
+      "EmailJS",
+    ]}
+    image="/placeholder.svg?height=400&width=600"
+    demoUrl="https://drevol.com"
+    repoUrl="https://github.com"
+  />
+
+  <ProjectCard
+    title="Fitness Tracker"
+    description="A mobile-first fitness tracking application with activity tracking and data visualization using D3.js and Firebase backend."
+    tags={["React Native", "TypeScript", "D3.js", "Firebase"]}
+    image="/placeholder.svg?height=400&width=600"
+    demoUrl="https://example.com"
+    repoUrl="https://github.com"
+  />
+
+  <ProjectCard
+    title="Weather Dashboard"
+    description="A responsive weather dashboard that provides real-time forecasts and historical weather data, visualized using Chart.js."
+    tags={["React", "Weather API", "Chart.js", "Styled Components"]}
+    image="/placeholder.svg?height=400&width=600"
+    demoUrl="https://example.com"
+    repoUrl="https://github.com"
+  />
+
+  <ProjectCard
+    title="Personal Portfolio Website"
+    description="A personal portfolio site showcasing my work, skills, and contact info. Built with modern UI practices using Next.js, Tailwind CSS, and Framer Motion."
+    tags={["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"]}
+    image="/placeholder.svg?height=400&width=600"
+    demoUrl="https://example.com"
+    repoUrl="https://github.com"
+  />
+</div>
         </div>
       </section>
 

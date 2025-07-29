@@ -58,12 +58,12 @@ export function ProjectCard({ title, description, tags, image, demoUrl, repoUrl 
             </div>
 
             <div className="flex justify-between mt-auto pt-4 border-t border-zinc-700/50">
-              <Button variant="ghost" size="sm" className="text-zinc-400 hover:text-white hover:bg-zinc-700/50" asChild>
+              {/* <Button variant="ghost" size="sm" className="text-zinc-400 hover:text-white hover:bg-zinc-700/50" asChild>
                 <Link href={repoUrl} target="_blank" rel="noopener noreferrer">
                   <Github className="mr-2 h-4 w-4" />
                   Code
                 </Link>
-              </Button>
+              </Button> */}
               <Button
                 size="sm"
                 className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 border-0"
