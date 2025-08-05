@@ -5,33 +5,28 @@ import { useMobile } from "@/hooks/use-mobile"
 
 const experiences = [
   {
-    title: "Senior Frontend Engineer",
-    company: "Tech Innovations Inc.",
-    period: "2021 - Present",
+    title: "Junior Software Developer",
+    company: "Drevol",
+    period: "2025 - Present",
     description:
-      "Lead the frontend development team in building a SaaS platform. Implemented new features, improved performance, and mentored junior developers.",
+      "Building and maintaining scalable web applications using React, Redux, and TypeScript. Integrated third-party APIs, implemented state management with Redux-Saga, and optimized performance for better user experience. Collaborating closely with designers and backend teams to deliver production-ready solutions.",
   },
   {
-    title: "Frontend Developer",
-    company: "Digital Solutions Co.",
-    period: "2019 - 2021",
+    title: "Software Development Intern",
+    company: "Drevol",
+    period: "2024 - 2025",
     description:
-      "Developed responsive web applications using React and TypeScript. Collaborated with designers and backend engineers to deliver high-quality products.",
+      "Developed responsive websites and web apps using React, Tailwind CSS, and JavaScript. Gained hands-on experience with REST APIs, EmailJS integration, and front-end performance optimization. Contributed to live client projects under senior developer guidance.",
   },
   {
-    title: "Web Developer",
-    company: "Creative Agency",
-    period: "2017 - 2019",
+    title: "Web Development Trainee",
+    company: "Weltec Institute",
+    period: "2023 - 2024",
     description:
-      "Built websites and web applications for various clients. Worked with HTML, CSS, JavaScript, and WordPress.",
+      "Completed intensive training in modern web technologies including HTML5, CSS3, JavaScript, and React. Worked on mini-projects to learn responsive design, UI/UX principles, and version control with Git.",
   },
-  {
-    title: "Intern",
-    company: "Startup Hub",
-    period: "2016 - 2017",
-    description: "Assisted in developing web applications and learned modern web development practices.",
-  },
-]
+];
+
 
 export function Timeline() {
   const isMobile = useMobile()

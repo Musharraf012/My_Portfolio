@@ -321,7 +321,7 @@ export default function Portfolio() {
     repoUrl="https://github.com"
   />
 
-  <ProjectCard
+  {/* <ProjectCard
     title="Fitness Tracker"
     description="A mobile-first fitness tracking application with activity tracking and data visualization using D3.js and Firebase backend."
     tags={["React Native", "TypeScript", "D3.js", "Firebase"]}
@@ -346,7 +346,7 @@ export default function Portfolio() {
     image="/placeholder.svg?height=400&width=600"
     demoUrl="https://example.com"
     repoUrl="https://github.com"
-  />
+  /> */}
 </div>
         </div>
       </section>

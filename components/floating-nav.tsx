@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { useMobile } from "@/hooks/use-mobile"
+import { downloadFile } from "@/lib/utils"
 
 export function FloatingNav() {
   const [isVisible, setIsVisible] = useState(false)
@@ -39,11 +40,14 @@ export function FloatingNav() {
       setIsOpen(false)
     }
   }
+  const handleDownload = () => {
+    downloadFile("/Musharraf-resume.pdf", "Musharraf-Resume.pdf");
+  };
 
   return (
     <>
       <motion.div
-        className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        className={`fixed top-6 left-1/2 md:left-[18%] lg:left-1/4 xl:left-1/2 -translate-x-1/2 z-50 ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
         initial={{ y: -100 }}
         animate={{ y: isVisible ? 0 : -100 }}
         transition={{ duration: 0.3 }}
@@ -85,6 +89,7 @@ export function FloatingNav() {
               <Button
                 size="sm"
                 className="ml-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 border-0"
+                onClick={handleDownload}
               >
                 Resume
               </Button>
