@@ -165,7 +165,7 @@ export default function Portfolio() {
               <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl opacity-70"></div>
               <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800">
                 <img
-                  src="/portfolioimg.png?height=600&width=600"
+                  src="/portfolio1.webp?height=600&width=600"
                   alt="Mohammad Musharraf"
                   className="w-full h-full object-cover"
                 />
@@ -300,7 +300,7 @@ export default function Portfolio() {
   <ProjectCard
     title="Pharma Management System"
     description="A web portal to access pharmaceutical product details and Certificates of Analysis (COA), with backend support in PHP."
-    tags={["React.js", "Bootstrap", "PHP", "COA Viewer"]}
+    tags={["Next.js", "Bootstrap", "PHP"]}
     image="/placeholder.svg?height=400&width=600"
     demoUrl="https://dimer.com"
     repoUrl="https://github.com"

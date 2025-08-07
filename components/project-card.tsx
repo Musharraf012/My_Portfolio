@@ -64,7 +64,7 @@ export function ProjectCard({ title, description, tags, image, demoUrl, repoUrl 
                   Code
                 </Link>
               </Button> */}
-              <Button
+              {/* <Button
                 size="sm"
                 className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 border-0"
                 asChild
@@ -73,7 +73,7 @@ export function ProjectCard({ title, description, tags, image, demoUrl, repoUrl 
                   Live Demo
                   <ArrowUpRight className="ml-2 h-4 w-4" />
                 </Link>
-              </Button>
+              </Button> */}
             </div>
           </div>
 
